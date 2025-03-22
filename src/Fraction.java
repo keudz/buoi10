@@ -1,18 +1,17 @@
 
-public class sdfg {
+public class Fraction {
     private int tu;
     private int mau;
     private int tl;
     private int ml;
 
 
-    public sdfg(int newTu, int newMau) {
+    public Fraction(int newTu, int newMau) {
 
         tu = newTu;
         mau = newMau;
         rutgon();
     }
-
 
     private int ucln() {
         int t = Math.abs(tu);
@@ -42,41 +41,41 @@ public class sdfg {
     }
 
 
-    public sdfg cong(sdfg other) {
+    public Fraction cong(Fraction other) {
         int newTu = this.tu * other.mau + other.tu * this.mau;
         int newMau = this.mau * other.mau;
-        return new sdfg(newTu,newMau);
+        return new Fraction(newTu,newMau);
 
     }
 
 
-    public sdfg tru(sdfg other) {
+    public Fraction tru (Fraction other) {
         int newTu = this.tu * other.mau - other.tu * this.mau;
         int newMau = this.mau * other.mau;
-        return new sdfg(newTu, newMau);
+        return new Fraction (newTu, newMau);
     }
 
 
-    public sdfg nhan(sdfg other) {
+    public Fraction nhan(Fraction other) {
         int newTu = this.tu * other.tu;
         int newMau = this.mau * other.mau;
-        return new sdfg(newTu, newMau);
+        return new Fraction(newTu, newMau);
     }
 
-    public sdfg chia(sdfg other) {
+    public Fraction chia(Fraction other) {
         if (other.tu == 0) {
             throw new ArithmeticException("Không thể chia cho phân số có tử số bằng 0!");
         }
         int newTu = this.tu * other.mau;
         int newMau = this.mau * other.tu;
-        return new sdfg(newTu, newMau);
+        return new Fraction(newTu, newMau);
     }
 
 
     public static void main(String[] args) {
         // Tạo hai phân số
-        sdfg fs1 = new sdfg(20, 0);
-        sdfg fs2 = new sdfg(10, 50);
+        Fraction fs1 = new Fraction(20, 0);
+        Fraction fs2 = new Fraction(10, 50);
          if(fs1.mau == 0 || fs2.mau == 0 ){
              System.out.println("loi!!!!!!!");
              return;
@@ -85,10 +84,10 @@ public class sdfg {
 
 
 
-        sdfg sum = fs1.cong(fs2);
-        sdfg hieu = fs1.tru(fs2);
-        sdfg tich = fs1.nhan(fs2);
-        sdfg thuong = fs1.chia(fs2);
+        Fraction sum = fs1.cong(fs2);
+        Fraction hieu = fs1.tru(fs2);
+        Fraction tich = fs1.nhan(fs2);
+        Fraction thuong = fs1.chia(fs2);
 
         System.out.print("Tổng: ");
         sum.show();
